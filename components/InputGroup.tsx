@@ -34,7 +34,7 @@ export default function InputGroup({ ownerParam, repoParam }: InputGroupProps) {
 
   return (
     <div className="flex flex-col gap-4 w-[350px] md:w-[800px]">
-      <div className="flex flex-col md:flex-row items-center gap-2 justify-between">
+      <div className="flex flex-col md:flex-row md:items-center gap-2 justify-between">
         <Link className="font-bold text-2xl whitespace-nowrap" href="/">
           Could you accept my PR?
         </Link>

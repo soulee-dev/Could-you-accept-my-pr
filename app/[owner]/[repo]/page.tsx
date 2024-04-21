@@ -1,16 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Heatmap } from "@/component/Heatmap";
+import { Heatmap } from "@/components/Heatmap";
 import Link from "next/link";
-import LoadingComponent from "@/component/LoadingComponent";
+import LoadingComponent from "@/components/LoadingComponent";
 import { heatmapResult, MaintainerCounts, PR } from "@/types";
 import {
   getActiveMaintainers,
   getAverageMergeTime,
   getHeatmapData,
 } from "@/utils";
-import InputGroup from "@/component/InputGroup";
+import InputGroup from "@/components/InputGroup";
 
 type HomeProps = {
   params: { owner: string; repo: string };

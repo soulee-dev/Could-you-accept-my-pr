@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Renderer } from "@/component/Renderer";
-import { Tooltip } from "@/component/Tooltip";
+import { Renderer } from "@/components/Renderer";
+import { Tooltip } from "@/components/Tooltip";
 import { heatmapResult } from "@/types";
 
 type HeatmapProps = {

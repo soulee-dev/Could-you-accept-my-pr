@@ -1,4 +1,4 @@
-import InputGroup from "@/component/InputGroup";
+import InputGroup from "@/components/InputGroup";
 
 export default function Home() {
   return (
