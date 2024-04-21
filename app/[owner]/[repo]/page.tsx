@@ -79,21 +79,22 @@ export default function Home({ params }: HomeProps) {
     setPercentageOfMergedPrs((filterdPRs.length / allPrData.length) * 100);
   }, [allPrData]);
 
-  async function getData() {
-    if (!owner || !repo) return;
-    const response = await fetch(`/api?owner=${owner}&repo=${repo}`);
-    if (response.status === 404) {
-      throw new Error("Repository not found");
-    }
-    if (!response.ok) {
-      throw new Error(`${response.status} (${response.statusText})`);
-    }
-    const data = await response.json();
-    return data;
-  }
-
   useEffect(() => {
     if (!owner || !repo) return;
+
+    async function getData() {
+      if (!owner || !repo) return;
+      const response = await fetch(`/api?owner=${owner}&repo=${repo}`);
+      if (response.status === 404) {
+        throw new Error("Repository not found");
+      }
+      if (!response.ok) {
+        throw new Error(`${response.status} (${response.statusText})`);
+      }
+      const data = await response.json();
+      return data;
+    }
+
     setIsLoading(true);
     getData()
       .then((data) => {

@@ -18,15 +18,13 @@ export const Renderer = ({
   data,
   setHoveredCell,
 }: RendererProps) => {
-  if (!data) return null;
-
   const boundsWidth = width - MARGIN.right - MARGIN.left;
   const boundsHeight = height - MARGIN.top - MARGIN.bottom;
 
   const allYGroups = useMemo(() => [...new Set(data.map((d) => d.y))], [data]);
   const allXGroups = useMemo(() => [...new Set(data.map((d) => d.x))], [data]);
 
-  const [min = 0, max = 0] = d3.extent(data.map((d) => d.value)); // extent can return [undefined, undefined], default to [0,0] to fix types
+  const [min = 0, max = 0] = d3.extent(data.map((d) => d.value));
 
   const xScale = useMemo(() => {
     return d3
@@ -34,7 +32,7 @@ export const Renderer = ({
       .range([0, boundsWidth])
       .domain(allXGroups)
       .padding(0.01);
-  }, [data, width]);
+  }, [boundsWidth, allXGroups]);
 
   const yScale = useMemo(() => {
     return d3
@@ -42,11 +40,10 @@ export const Renderer = ({
       .range([boundsHeight, 0])
       .domain(allYGroups)
       .padding(0.01);
-  }, [data, height]);
+  }, [boundsHeight, allYGroups]);
 
   var colorScale = d3.scaleSequential(interpolateGreens).domain([min, max]);
 
-  // Build the rectangles
   const allShapes = data.map((d, i) => {
     const x = xScale(d.x);
     const y = yScale(d.y);

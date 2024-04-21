@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type InputGroupProps = {
   ownerParam: string;
@@ -42,12 +43,13 @@ export default function InputGroup({ ownerParam, repoParam }: InputGroupProps) {
           href="https://github.com/soulee-dev/could-you-accept-my-pr"
           target="_blank"
         >
-          <img
+          <Image
             width={75}
             height={20}
             alt="GitHub Repo stars"
             src="https://img.shields.io/github/stars/soulee-dev/could-you-accept-my-pr"
-          ></img>
+            unoptimized
+          />
         </a>
       </div>
       <form className="flex gap-2 flex-col md:flex-row" onSubmit={handleSubmit}>
