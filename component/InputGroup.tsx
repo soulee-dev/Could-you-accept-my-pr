@@ -35,15 +35,20 @@ export default function InputGroup({ ownerParam, repoParam }: InputGroupProps) {
   return (
     <div className="flex flex-col gap-4 w-[350px] md:w-[800px]">
       <div className="flex flex-col md:flex-row items-center gap-2 justify-between">
-        <h1 className="font-bold text-2xl whitespace-nowrap">
-          Could you accept my pr?
-        </h1>
-        <img
-          width={75}
-          height={20}
-          alt="GitHub Repo stars"
-          src="https://img.shields.io/github/stars/soulee-dev/could-you-accept-my-pr"
-        />
+        <Link className="font-bold text-2xl whitespace-nowrap" href="/">
+          Could you accept my PR?
+        </Link>
+        <a
+          href="https://github.com/soulee-dev/could-you-accept-my-pr"
+          target="_blank"
+        >
+          <img
+            width={75}
+            height={20}
+            alt="GitHub Repo stars"
+            src="https://img.shields.io/github/stars/soulee-dev/could-you-accept-my-pr"
+          ></img>
+        </a>
       </div>
       <form className="flex gap-2 flex-col md:flex-row" onSubmit={handleSubmit}>
         <input
