@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import InputGroup from "@/component/InputGroup";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({
         <main className="flex flex-col min-h-screens justify-between items-center p-6 md:p-12">
           {children}
         </main>
+        <GoogleAnalytics gaId="G-Y1ZMMP4VNW" />
       </body>
     </html>
   );
